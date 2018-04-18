@@ -26,7 +26,7 @@ int quarters=Integer.parseInt(quarters2);
 		// Calculate how much money the user has and save it in a double variable 
 double Buck = (nick*0.05)+(dime*0.10)+(quarters*0.25);
 		// Tell the user how much money they have
-JOptionPane.showConfirmDialog(null,"you have $"+ Buck);
+JOptionPane.showMessageDialog(null,"you have $"+ Buck);
 	}
 }
 
