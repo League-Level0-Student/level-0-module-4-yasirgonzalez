@@ -11,7 +11,7 @@ String variable = "KALlak";
 		// 2. Print your String to the console in upper case.
 System.out.println(variable);
 		// 3. Print your String to the console in lower case.
-System.out.println(variable);
+
 		// 4. Print the first 3 char's of your String
 		//    HINT: .substring(start,end)
 
