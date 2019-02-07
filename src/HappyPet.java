@@ -35,8 +35,7 @@ else if(task == 2) {
 if (happinessLevel == 10) {
 	JOptionPane.showMessageDialog(null, "You love your pet a lot, congrats");
 	break;
-}
-			
+}				
 	// 4. Create methods to handle each of your user selections.
 	//    Each method should create a pop-up with the pet's response (eg. cat might purr when pet), 
 	//    and INCREMENT the pet's happiness Level.
