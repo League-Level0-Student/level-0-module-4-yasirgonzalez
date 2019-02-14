@@ -15,7 +15,9 @@ public class FruitQuiz extends KeyAdapter {
 	void makeQuestions() {
 		question1 = new JLabel("<html>Which is not a real fruit? <br> A: Dragon Fruit <br> B: Durian <br> C: Crazyberry</html>");
 		// 11. Make another question called "question2".  Use question1 above as a guide.
-	question2 = new JLabel("<html>Which is not the a real fruit? <br> A: Ackee <br> B: Manchineel <br> C:Ruby Russian Grapes ");
+	question2 = new JLabel("<html>Which is not the a real fruit? <br> A: Ackee <br> B: Zucchini <br> C: Manchineel</html>");
+	question3 = new JLabel("<html>Which is the real fruit? <br> A: Cocoa <br> B: Avocado <br> C: Pickle </html>");
+	question4 = new JLabel("<html>Which is the a real fruit? <br> A: Krumquat <br> B: Cherimoya <br> C:  </html>");
 	}
 
 	@Override
@@ -24,19 +26,39 @@ public class FruitQuiz extends KeyAdapter {
 		// 1. Print out the key code variable
 		System.out.print("question1");
 		// 2. Make 3 int variables that hold the key codes for A, b, and C
-		int one = A;
-		int two = B;
-		int three = C;
-		// 14. Repeat steps 11, 12, and 13 for question3 and question4 - IMPORTANT: The questions must be in reverse order from top to bottom to work properly
+		int A = 0;
+		int B = 1;
+		int C = 2;
+		// 14. Repeat steps 11,12, and 13 for question3 and question4 - IMPORTANT: The questions must be in reverse order from top to bottom to work properly
 		
 		// 12. If question2 is showing,
 			
 			// 13. check if it is right or wrong like you did for question1
-		
+		if(question3.isShowing()) {
+			if(question3.equals("B")) {
+				correct();
+				nextQuestion(question4);
+			}
+			else {
+				incorrect();
+				nextQuestion(question4);
+			}
+		}
+		if(question2.isShowing()) {
+			if(question2.equals("B")) {
+				correct();
+				nextQuestion(question3);
+			}
+			else {
+				incorrect();
+				nextQuestion(question3);
+			}	
+			
+		}
 			
 		if (question1.isShowing()) {
 			// 3. If they selected the right fruit, do steps 4 and 7
-			if(question1.equals("three")) {
+			if(question1.equals("C")) {
 			
 			
 				// 4. Call the correct() method
@@ -50,6 +72,7 @@ public class FruitQuiz extends KeyAdapter {
 			
 				// 9. Call the incorrect() method
 			incorrect();
+			nextQuestion(question3);
 			}
 		}
 
