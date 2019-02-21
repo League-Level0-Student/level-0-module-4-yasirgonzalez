@@ -17,14 +17,14 @@ public class FruitQuiz extends KeyAdapter {
 		// 11. Make another question called "question2".  Use question1 above as a guide.
 	question2 = new JLabel("<html>Which is not the a real fruit? <br> A: Ackee <br> B: Zucchini <br> C: Manchineel</html>");
 	question3 = new JLabel("<html>Which is the real fruit? <br> A: Cocoa <br> B: Avocado <br> C: Pickle </html>");
-	question4 = new JLabel("<html>Which is the a real fruit? <br> A: Krumquat <br> B: Cherimoya <br> C:  </html>");
+	question4 = new JLabel("<html>Which is the a real fruit? <br> A: Krumquat <br> B: Cherimoya <br> C: Dulse </html>");
 	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		int keyCode = arg0.getKeyCode();
 		// 1. Print out the key code variable
-		System.out.print("question1");
+		System.out.print(keyCode);
 		// 2. Make 3 int variables that hold the key codes for A, b, and C
 		int A = 0;
 		int B = 1;
@@ -34,6 +34,14 @@ public class FruitQuiz extends KeyAdapter {
 		// 12. If question2 is showing,
 			
 			// 13. check if it is right or wrong like you did for question1
+		if(question4.isShowing()){
+			if(question4.equals("B")) {
+				correct();
+			}
+			else {
+				incorrect();
+			}
+		}
 		if(question3.isShowing()) {
 			if(question3.equals("B")) {
 				correct();
@@ -72,7 +80,7 @@ public class FruitQuiz extends KeyAdapter {
 			
 				// 9. Call the incorrect() method
 			incorrect();
-			nextQuestion(question3);
+			nextQuestion(question2);
 			}
 		}
 
@@ -83,13 +91,13 @@ public class FruitQuiz extends KeyAdapter {
 		// the default package. It must be a .wav file. 
 		// There are lots on freesound.org
 		// 6. Use the playSound method to play your sound
-	
+		playSound("correct.wav");
 
 	}
 
 	private void incorrect() {
 		// 10. Find a sound for wrong answers and put it in the default package. Use the playSound method to play it.
-
+playSound("wrong.wav");
 	}
 
 	private void nextQuestion(JLabel newQuestion) {
@@ -103,11 +111,11 @@ public class FruitQuiz extends KeyAdapter {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void playSound(String fileName) {
-		AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+	private void playSound(String correct) {
+		AudioClip sound = JApplet.newAudioClip(getClass().getResource(correct));
 		sound.play();
 	}
-
+	
 	public static void main(String[] args) {
 		new FruitQuiz().go();
 	}
